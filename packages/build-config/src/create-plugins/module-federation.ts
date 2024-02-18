@@ -2,7 +2,6 @@ import { container } from "webpack";
 import { BuildOptions } from "../types";
 
 export const createModuleFederationPlugin = ({packageJson, moduleFederationOptions }: BuildOptions) => {
-    const { remotes } = moduleFederationOptions
     return new container.ModuleFederationPlugin({
         name: packageJson.name,
         filename: 'remoteEntry.js',
@@ -20,6 +19,7 @@ export const createModuleFederationPlugin = ({packageJson, moduleFederationOptio
                 requiredVersion: packageJson.dependencies['react-dom']
             },
         },
-        remotes: remotes
+        exposes: moduleFederationOptions?.exposes,
+        remotes: moduleFederationOptions?.remotes
     })
 }

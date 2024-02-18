@@ -15,7 +15,8 @@ export interface BuildOptions{
     isDev: boolean,
     // @todo убрать any.
     packageJson: any,
-    moduleFederationOptions: {
-        remotes: Record<string, string>
+    moduleFederationOptions?: {
+        remotes?: Record<string, string>,
+        exposes?: Record<string, string>,
     }
 }

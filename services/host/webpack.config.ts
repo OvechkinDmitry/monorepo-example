@@ -1,14 +1,13 @@
-import { Configuration } from "webpack";
-import { buildWebpack } from "./config/build/webpack";
+import { BuildMode, buildWebpack} from "@packages/build-config";
 import path from "path";
 import packageJson from './package.json'
 
 export interface BuildEnv {
-    mode: Configuration['mode'],
+    mode: BuildMode,
     port: number,
 }
 
-export default (env: BuildEnv): Configuration => {
+export default (env: BuildEnv) => {
     const mode = env.mode || 'development';
     const port = env.port || 3000;
     const isDev = mode === 'development';

@@ -1,5 +1,5 @@
 const App = () => {
-    return <h2>PAGE ONE</h2>
+    return <h2>PAGE TWO</h2>
 }
 
 export default App

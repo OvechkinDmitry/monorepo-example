@@ -20,7 +20,7 @@ export const buildPlugins = (options: BuildOptions): Configuration['plugins'] =>
     if(isDev){
         plugins.push(new HotModuleReplacementPlugin())
         /** Вынос проверки типов в отдельный процесс */
-        // plugins.push(new ForkTsCheckerWebpackPlugin())
+        plugins.push(new ForkTsCheckerWebpackPlugin())
     }
 
     if(!isDev){
